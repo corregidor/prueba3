@@ -1,0 +1,16 @@
+<div class="well"><h1>Estos son los TODOs registrados</h1></div>
+<div class="well">
+	<% @todos.each do |todo| %>
+		<%= todo.description %> | 
+		<%= todo.completed %> | 
+		<%= link_to("Ver tarea", todo) %> | 
+		<%= link_to("Editar tarea", todo_edit_path(todo)) %> | 
+		<%= link_to("Delete", todo_delete_path(todo),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"}) %> |
+		<%= link_to("Completar", todo_complete_path(todo)) %>
+
+		<br> 
+	<% end %>
+</div>
+<%= link_to("Crear ToDo", todos_new_path ) %>
