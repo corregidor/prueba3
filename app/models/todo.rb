@@ -1,3 +1,3 @@
 class Todo < ApplicationRecord
-	validates :description, :presence => {:message => "No puede estar vacío"}
+	validates :description, :presence => {:message => "No puede estar	 vacío"}
 end
