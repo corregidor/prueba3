@@ -1,4 +1,18 @@
+	<% if @todo.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@todo.errors.count, "error") %> No se puede guardar el ToDo:
+    </h3>
+    <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+     	<% end %>
+    </ul>
+  </div>
+	<% end %>
 <%= form_with(model: @todo, local:true) do |form|  %>
+
+
 	<%= form.label :Descripción %>
   <%= form.text_field :description %> <br>
 
@@ -6,4 +20,5 @@
   <%= form.check_box :completed %> <br>
 
 	<%= form.submit :Actualizar %>
+
 <% end %>

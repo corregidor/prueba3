@@ -11,6 +11,7 @@ class TodosController < ApplicationController
 
 	def create
 		@todo = Todo.new(todo_params)
+		
 		if @todo.save
 			redirect_to pages_todos_path
 		else
@@ -48,12 +49,13 @@ class TodosController < ApplicationController
 		redirect_to pages_todos_path
 	end
 
+	def list
+		@todos = Todo.all
+	end
+
 	private
 	def todo_params
 		params.require(:todo).permit(:description, :completed, :id)
 	end
-
-
-
 
 end
